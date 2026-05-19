@@ -1,14 +1,26 @@
-<header class="header">
+<header class="app-header">
 
-    <h1> {{brand()}} </h1>
-    <div>
-        <button (click)="changeBrand()">Modificar Título</button>   
-        <button (click)="resetBrand()" [disabled]="brand() === 'PPW Angular'">Resetear Título</button>
-        <button (click)="toggleInfo()">{{toggleLabel()}}</button>
-    </div>
+    <span class="title">{{brand() | uppercase}}</span>
 
-    @if(showInfo()) {
-        <h3>Show Info es TRUE, por eso se muestar el texto</h3>
-    }
+    <nav class="app-header-nav">
+
+  <a class="nav-link"
+    routerLink="/"
+    routerLinkActive="nav-link--active"
+    [routerLinkActiveOptions]="{ exact: true }">
+    Inicio
+  </a>
+  <a class="nav-link"
+    routerLink="/students"
+    routerLinkActive="nav-link--active">
+    Estudiantes
+  </a>
+
+  <a class="nav-link"
+    routerLink="/layouts"
+    routerLinkActive="nav-link--active">
+    Layouts
+  </a>
+</nav>
 
  </header>

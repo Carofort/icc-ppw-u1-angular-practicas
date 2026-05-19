@@ -1,10 +1,35 @@
-.header {
+.app-header {
     display: flex;
-    flex-direction: column;
-    gap : 0.75rem;
-    margin-bottom: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: rgb(208, 80, 157);
+    color: white;
 }
 
-button {
-    width: fit-content;
+.title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.app-header-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: rgba(247, 247, 247, 0.716);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: #aa0361;
+}
+
+.nav-link--active {
+    color: white;
+    border-bottom: 2px solid #aa0361;
+    font-weight: 600;
 }

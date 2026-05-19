@@ -1,14 +1,14 @@
 <footer class="footer">
   <hr>
-  <p>Fecha actual: {{ fecha() | date:'fullDate' }}</p>
+  <p> <strong>Fecha actual:</strong> {{ fecha() | date:'fullDate' }}</p>
   
-  <p>Desarrollado por: {{ estudiante() | uppercase }}</p>
+  <p> <strong>Desarrollado por:</strong> {{ estudiante() | uppercase }}</p>
   
-  <p>Contacto: {{ 'dfortmann@est.ups.edu.ec' | lowercase }}</p>
+  <p> <strong>Contacto:</strong> {{ 'dfortmann@est.ups.edu.ec' | lowercase }}</p>
 
-  <p>Valor del curso: {{ cursoCosto() | currency:'USD' }}</p>
+  <p> <strong>Valor del curso:</strong> {{ cursoCosto() | currency:'USD' }}</p>
   
-  <p>Progreso de la práctica: {{ progreso() | percent }}</p>
+  <p> <strong>Progreso de la práctica:</strong> {{ progreso() | percent }}</p>
 
   <p>© {{ fecha() | date:'yyyy' }} - Versión {{ version() }}</p>
 </footer>

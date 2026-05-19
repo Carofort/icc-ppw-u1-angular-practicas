@@ -1,59 +1,28 @@
-# PpwAngularPracticas
+# Práctica Angular 04 - Layouts con Tailwind
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+### Carolina Fortmann
 
-## Development server
+-----------------
 
-To start a local development server, run:
+Realizar cuatro distribuciones adicionales en ```layouts-page.html``` tomadas de la documentación oficial de Tailwind:
 
-```bash
-ng serve
-```
+#### 1. Layout con ```flex-col-reverse```:
+![Ejemplo de layout con flex-col-reverse en el localhost](assets/01-flex-col.png)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Descripción:** Se implementa un contenedor flexible que organiza sus elementos en una columna vertical, pero invirtiendo el orden del flujo de los elementos (`flex-direction: column-reverse`). Esto hace que el primer elemento del código se renderice en la parte inferior y el último en la parte superior, ideal para secciones de chats, feeds de actividad o componentes que requieran un orden invertido en dispositivos móviles.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+#### 2. Layout con ```grid gap-4```:
+![Ejemplo de layout con grid gap-4 en el localhost](assets/02-grid-gap-4.png)
 
-```bash
-ng generate component component-name
-```
+**Descripción:** Se utiliza un Grid para alinear elementos en filas y columnas estructuradas de forma simétrica. La propiedad `gap-4` aplica una separación uniforme de `1rem` (16px) tanto horizontal como verticalmente entre las celdas de la rejilla.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+#### 3. Layout con ```row-span``` y ```col-span```:
+![Ejemplo de layout con row-span y col-span en el localhost](assets/03-grid-row.png)
 
-```bash
-ng generate --help
-```
+**Descripción:** Permite que ciertos elementos utilicen múltiples celdas. Utilizando clases como `row-span` y `col-span`, define cuántas filas y columnas debe ocupar un elemento específico respectivamente. Esto facilita el diseño de distribuciones asimétricas complejas, como galerías de imágenes o layouts de periódicos.
 
-## Building
+#### 4. Layout con ```flex-wrap justify-center-safe```:
+![Ejemplo de layout con flex-wrap justify-center-safe en el localhost](assets/04-flex-justify.png)
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Descripción:** Es un layout dinámico y adaptable. La clase `flex-wrap` permite que las tarjetas o elementos pasen automáticamente a la siguiente línea si se quedan sin espacio en la fila actual, evitando el desbordamiento horizontal. Por otra parte, la variable `justify-center-safe` alinea los elementos al centro del contenedor y activa un mecanismo de seguridad para que en caso de usar pantallas pequeñas, el contenido mantenga sus márgenes izquierdos legibles en lugar de recortarse fuera de los límites de esta.
