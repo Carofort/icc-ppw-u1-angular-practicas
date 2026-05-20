@@ -26,3 +26,27 @@ Realizar cuatro distribuciones adicionales en ```layouts-page.html``` tomadas de
 ![Ejemplo de layout con flex-wrap justify-center-safe en el localhost](assets/04-flex-justify.png)
 
 **Descripción:** Es un layout dinámico y adaptable. La clase `flex-wrap` permite que las tarjetas o elementos pasen automáticamente a la siguiente línea si se quedan sin espacio en la fila actual, evitando el desbordamiento horizontal. Por otra parte, la variable `justify-center-safe` alinea los elementos al centro del contenedor y activa un mecanismo de seguridad para que en caso de usar pantallas pequeñas, el contenido mantenga sus márgenes izquierdos legibles en lugar de recortarse fuera de los límites de esta.
+
+------
+# Práctica Angular 05 - Formularios Reactivos
+
+Capturas de las prácticas:
+
+#### Práctica A: Formularios simples ```sign-up```
+![Ejemplo de layout con flex-col-reverse en el localhost](assets/practica5/05-a-errores.png)
+
+![Ejemplo de layout con flex-col-reverse en el localhost](assets/practica5/05-a-validado.png)
+
+
+#### Práctica B: Rutilización de código ```FormUtils```
+![Ejemplo de layout con flex-col-reverse en el localhost](assets/practica5/05-b-errores.png)
+
+![Ejemplo de layout con flex-col-reverse en el localhost](assets/practica5/05-b-validado.png)
+
+
+
+#### Práctica C: Formularios complejos ```dinámicos + especiales```
+![Ejemplo de layout con flex-col-reverse en el localhost](assets/practica5/05-c-errores.png)
+
+![Ejemplo de layout con flex-col-reverse en el localhost](assets/practica5/05-c-validado.png)
+
