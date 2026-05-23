@@ -1,14 +1,22 @@
-<footer class="footer">
-  <hr>
-  <p> <strong>Fecha actual:</strong> {{ fecha() | date:'fullDate' }}</p>
-  
-  <p> <strong>Desarrollado por:</strong> {{ estudiante() | uppercase }}</p>
-  
-  <p> <strong>Contacto:</strong> {{ 'dfortmann@est.ups.edu.ec' | lowercase }}</p>
+<footer class="footer sm:footer-horizontal mt-10 border border-base-200 bg-base-300 p-10 text-base-content shadow-sm">
+  <nav>
+    <h6 class="footer-title">PPW</h6>
+    <a class="link link-hover">Angular 21</a>
+    <a class="link link-hover">TailwindCSS</a>
+    <a class="link link-hover">DaisyUI</a>
+  </nav>
 
-  <p> <strong>Valor del curso:</strong> {{ cursoCosto() | currency:'USD' }}</p>
-  
-  <p> <strong>Progreso de la práctica:</strong> {{ progreso() | percent }}</p>
+  <nav>
+    <h6 class="footer-title">Navegación</h6>
+    <a class="link link-hover" routerLink="/">Inicio</a>
+    <a class="link link-hover" routerLink="/students">Estudiantes</a>
+    <a class="link link-hover" routerLink="/ui-components">Componentes</a>
+  </nav>
 
-  <p>© {{ fecha() | date:'yyyy' }} - Versión {{ version() }}</p>
+  <nav>
+    <h6 class="footer-title">Curso</h6>
+    <a class="link link-hover">Layouts responsive</a>
+    <a class="link link-hover">Formularios</a>
+    <a class="link link-hover">Servicios HTTP</a>
+  </nav>
 </footer>
