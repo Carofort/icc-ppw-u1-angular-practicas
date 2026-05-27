@@ -1,5 +1,7 @@
 <section class="mx-auto max-w-4xl space-y-6">
-  <a routerLink="/simpsons" class="btn btn-ghost btn-sm hover:bg-pink-800 hover:text-slate-50">← Volver al listado</a>
+  <a routerLink="/simpsons" class="btn btn-ghost btn-sm hover:bg-pink-800 hover:text-slate-50"
+    >← Volver al listado</a
+  >
 
   @if (characterResource.isLoading()) {
     <div class="flex h-56 items-center justify-center">
@@ -48,12 +50,32 @@
             class="badge badge-lg"
             [class.badge-success]="characterResource.value()!.status === 'Alive'"
             [class.badge-error]="characterResource.value()!.status === 'Deceased'"
-            [class.badge-warning]="characterResource.value()!.status !== 'Alive' && characterResource.value()!.status !== 'Deceased'"
+            [class.badge-warning]="
+              characterResource.value()!.status !== 'Alive' &&
+              characterResource.value()!.status !== 'Deceased'
+            "
           >
             {{ characterResource.value()!.status || 'Desconocido' }}
           </span>
         </div>
       </div>
     </article>
+  }
+  @if (authService.currentUser()) {
+    <!-- Solo visible para usuarios autenticados. -->
+    <button
+      class="btn btn-outline btn-sm"
+      [class.btn-warning]="isFavorite()"
+      (click)="toggleFavorite()"
+    >
+      @if (isFavorite()) {
+        ★ Guardado en favoritos
+      } @else {
+        ☆ Agregar a favoritos
+      }
+    </button>
+  } @else {
+    <!-- Invita al usuario anonimo a autenticarse. -->
+    <a class="btn btn-ghost btn-sm text-pink-700 hover:text-pink-900" routerLink="/auth"> Inicia sesión para guardar favoritos </a>
   }
 </section>

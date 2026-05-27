@@ -69,14 +69,28 @@
           </details>
         </li>
         <li>
-          <a routerLink="/ui-components" routerLinkActive="!bg-pink-700 !text-white"> UI Components </a>
+          <a routerLink="/ui-components" routerLinkActive="!bg-pink-700 !text-white">
+            UI Components
+          </a>
         </li>
-         
-        <li><a routerLink="/simpsons" routerLinkActive="!bg-pink-700 !text-white">Simpsons</a></li> 
-      </ul>
-    </div>
 
-    <div class="navbar-end"></div>
+        <li><a routerLink="/simpsons" routerLinkActive="!bg-pink-700 !text-white">Simpsons</a></li>
+      </ul>
+      
+    </div>
+    <div class="navbar-end gap-2">
+          @if (currentUser()) {
+            <!-- Usuario autenticado: mostrar email y boton de logout. -->
+            <span class="hidden text-sm text-base-content/60 lg:block">
+              {{ currentUser()!.email }}
+            </span>
+
+            <button class="btn btn-ghost btn-sm" (click)="logout()">Cerrar sesión</button>
+          } @else {
+            <!-- Sin sesion: navega a la pagina unificada de auth. -->
+            <a class="btn btn-sm bg-pink-700 hover:bg-pink-800 text-white border-none" routerLink="/auth"> Iniciar sesión </a>
+          }
+        </div>
   </div>
 
   <div class="collapse-content lg:hidden z-10">
@@ -121,9 +135,11 @@
         </details>
       </li>
       <li>
-        <a routerLink="/ui-components" routerLinkActive="!bg-pink-700 !text-white"> UI Components </a>
+        <a routerLink="/ui-components" routerLinkActive="!bg-pink-700 !text-white">
+          UI Components
+        </a>
       </li>
-      
+
       <li><a routerLink="/simpsons" routerLinkActive="!bg-pink-700 !text-white">Simpsons</a></li>
     </ul>
   </div>
