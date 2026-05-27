@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, // <-- AÑADIR ESTE
+  signInWithPopup } from '@angular/fire/auth';
 import { from } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -22,11 +23,16 @@ export class AuthService {
     return from(createUserWithEmailAndPassword(this.auth, email, password));
   }
 
+  // NUEVO: Login con Google usando un popup.
+  loginWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    return from(signInWithPopup(this.auth, provider));
+  }
+
   logout() {
     return from(signOut(this.auth));
   }
 
-  // Acceso rapido al uid del usuario actual (null si no esta autenticado).
   get uid(): string | null {
     return this.currentUser()?.uid ?? null;
   }

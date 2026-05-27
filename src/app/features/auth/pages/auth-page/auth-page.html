@@ -1,14 +1,16 @@
 <section class="flex min-h-[80vh] items-center justify-center">
   <div class="card w-full max-w-sm border border-base-300 bg-base-100 shadow-sm">
     <div class="card-body gap-4">
-
       <!-- El titulo cambia segun el modo activo. -->
       <h2 class="text-2xl font-black tracking-tight">
-        @if (isLogin()) { Iniciar sesión } @else { Crear cuenta }
+        @if (isLogin()) {
+          Iniciar sesión
+        } @else {
+          Crear cuenta
+        }
       </h2>
 
       <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="space-y-4">
-
         <div class="form-control">
           <label class="label" for="email">
             <span class="label-text">Correo electrónico</span>
@@ -33,7 +35,9 @@
             formControlName="password"
             placeholder="••••••"
             class="input input-bordered w-full"
-            [class.input-error]="authForm.get('password')?.invalid && authForm.get('password')?.touched"
+            [class.input-error]="
+              authForm.get('password')?.invalid && authForm.get('password')?.touched
+            "
           />
         </div>
 
@@ -59,17 +63,31 @@
         </button>
       </form>
 
+      <button
+        type="button"
+        (click)="onGoogleLogin()"
+        [disabled]="isLoading()"
+        class="btn btn-outline w-full flex items-center justify-center gap-2 border-base-300 hover:bg-base-200 hover:text-base-content text-base-content"
+      >
+        <img src="/img-logo-google.jpg" alt="Logo de Google" class="h-5 w-5" />
+
+        Continuar con Google
+      </button>
+
       <!-- Enlace para alternar entre login y registro. -->
       <p class="text-center text-sm text-base-content/60">
         @if (isLogin()) {
           ¿No tienes cuenta?
-          <button class="link text-pink-700 hover:text-pink-800" (click)="toggleMode()">Regístrate aqui</button>
+          <button class="link text-pink-700 hover:text-pink-800" (click)="toggleMode()">
+            Regístrate aqui
+          </button>
         } @else {
           ¿Ya tienes cuenta?
-          <button class="link text-pink-700 hover:text-pink-800" (click)="toggleMode()">Inicia sesión</button>
+          <button class="link text-pink-700 hover:text-pink-800" (click)="toggleMode()">
+            Inicia sesión
+          </button>
         }
       </p>
-
     </div>
   </div>
 </section>

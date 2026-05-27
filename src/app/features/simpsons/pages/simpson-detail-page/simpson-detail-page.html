@@ -64,8 +64,11 @@
   @if (authService.currentUser()) {
     <!-- Solo visible para usuarios autenticados. -->
     <button
-      class="btn btn-outline btn-sm"
-      [class.btn-warning]="isFavorite()"
+      class="btn btn-sm border border-pink-700 transition-colors duration-200"
+      [class.bg-pink-700]="isFavorite()"
+      [class.text-white]="isFavorite()"
+      [class.btn-outline]="!isFavorite()"
+      [class.text-pink-700]="!isFavorite()"
       (click)="toggleFavorite()"
     >
       @if (isFavorite()) {

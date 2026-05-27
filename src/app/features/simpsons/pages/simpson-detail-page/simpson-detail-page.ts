@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  signal,
+  ViewEncapsulation,
+} from '@angular/core';
 import { inject } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -16,16 +22,14 @@ import { FavoritesService } from '../../../../core/services/favorites';
   encapsulation: ViewEncapsulation.None,
 })
 export class SimpsonDetailPage {
-
-  
   // Dependencias del componente.
   private route = inject(ActivatedRoute);
   private simpsonsService = inject(SimpsonsService);
   private cacheService = inject(SimpsonsCacheService);
 
-    // Convertimos el parametro de ruta a numero.
+  // Convertimos el parametro de ruta a numero.
   private characterId = Number(this.route.snapshot.paramMap.get('id'));
-    // Resource reactivo: expone isLoading, error y value para el template.
+  // Resource reactivo: expone isLoading, error y value para el template.
   characterResource = rxResource({
     stream: () => {
       // Paso A: buscar primero en cache local.
@@ -38,12 +42,12 @@ export class SimpsonDetailPage {
       // Paso B: si no existe en cache, consultar API.
       return this.simpsonsService.getCharacterById(this.characterId).pipe(
         // Guardamos la respuesta para visitas futuras.
-        tap((character) => this.cacheService.save(character))
+        tap((character) => this.cacheService.save(character)),
       );
     },
   });
 
-    // authService como publico para poder leerlo en el template con authService.currentUser().
+  // authService como publico para poder leerlo en el template con authService.currentUser().
   authService = inject(AuthService);
   private favoritesService = inject(FavoritesService);
 
@@ -67,5 +71,4 @@ export class SimpsonDetailPage {
       });
     }
   }
-
 }
